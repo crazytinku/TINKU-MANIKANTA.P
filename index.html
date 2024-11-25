@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List App with Settings</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"> <!-- Link to the external CSS -->
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="profile">
+        <img src="mee!.jpg" alt="Profile Picture">
+        <h3>Do-it<br><span>Tinku</span></h3>
+      </div>
+      <div class="menu">
+        <p onclick="showPage('today')"><i class="fas fa-check-circle"></i> Today's Tasks</p>
+        <p><span class="dot personal"></span> Personal</p>
+        <p><span class="dot freelance"></span> Freelance</p>
+        <p><span class="dot work"></span> Work</p>
+        <p onclick="showPage('scheduled')"><i class="fas fa-calendar"></i> Scheduled Tasks</p>
+        <p onclick="showPage('settings')"><i class="fas fa-cog"></i> Settings</p>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+      <!-- Today's Tasks -->
+      <div id="today" class="page">
+        <h2>Today's Tasks</h2>
+        <div class="task-input">
+          <input type="text" id="taskInput" placeholder="Add a new task...">
+          <div class="radio-buttons">
+            <input type="radio" name="taskCategory" value="Personal" class="personal" checked>
+            <input type="radio" name="taskCategory" value="Freelance" class="freelance">
+            <input type="radio" name="taskCategory" value="Work" class="work">
+          </div>
+          <button onclick="addTask()">+</button>
+        </div>
+        <div class="tasks" id="taskList"></div>
+      </div>
+
+      <!-- Scheduled Tasks -->
+      <div id="scheduled" class="page" style="display: none;">
+        <h2>Scheduled Tasks</h2>
+        <p class="date-display" id="todayDate"></p>
+        <div class="tasks" id="scheduledTaskList"></div>
+      </div>
+
+      <!-- Settings -->
+      <div id="settings" class="page" style="display: none;">
+        <h2>Settings</h2>
+        <div class="section">
+          <h3>Profile</h3>
+          <p>Edit Profile <i class="fas fa-chevron-right"></i></p>
+          <p>Change Password <i class="fas fa-chevron-right"></i></p>
+          <p>Privacy <i class="fas fa-chevron-right"></i></p>
+        </div>
+        <div class="section">
+          <h3>Notification</h3>
+          <p>
+            Notifications
+            <span class="toggle" onclick="toggleSwitch(this)"></span>
+          </p>
+          <p>
+            Task notifications
+            <span class="toggle" onclick="toggleSwitch(this)"></span>
+          </p>
+        </div>
+        <div class="section">
+          <h3>Preferences</h3>
+          <p>Language <i class="fas fa-chevron-right"></i></p>
+          <p>Theme <i class="fas fa-chevron-right"></i></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script> <!-- Link to the external JavaScript -->
+</body>
+</html>
